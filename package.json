@@ -30,5 +30,10 @@
     "eslint-plugin-jsx-a11y": "^1.2.0",
     "eslint-plugin-react": "^5.2.2",
     "jasmine": "^2.4.1"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.4.7",
+    "parse-server": "^2.2.16",
+    "winston-firehose": "^1.0.4"
   }
 }

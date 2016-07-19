@@ -1,0 +1,10 @@
+{
+  "extends": "airbnb",
+  "env": {
+    "node": true,
+    "jasmine": true
+  },
+  "rules": {
+    "prefer-rest-params": 0
+  }
+}
