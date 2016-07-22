@@ -35,7 +35,7 @@
     "eslint-plugin-react": "^5.2.2",
     "jasmine": "^2.4.1",
     "kerberos": "0.0.21",
-    "parse": "^1.9.0",
+    "parse": "acinader/parse-server#6826661da960c4890db4da582e22776cb4fc8060",
     "parse-server-conformance-tests": "^1.0.0"
   },
   "dependencies": {
