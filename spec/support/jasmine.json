@@ -4,7 +4,7 @@
     "**/*[sS]pec.js"
   ],
   "helpers": [
-    "helpers/**/*.js"
+    "../../node_modules/parse-server/spec/helper.js"
   ],
   "stopSpecOnExpectationFailure": false,
   "random": false
