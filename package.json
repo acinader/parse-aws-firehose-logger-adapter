@@ -41,6 +41,6 @@
   "dependencies": {
     "aws-sdk": "^2.4.7",
     "parse-server": "^2.2.16",
-    "winston-firehose": "^1.0.4"
+    "winston-firehose": "^1.0.6"
   }
 }
