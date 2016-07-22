@@ -1,6 +1,7 @@
 # Logs
 logs
 *.log
+test_logs/*
 npm-debug.log*
 
 # Runtime data

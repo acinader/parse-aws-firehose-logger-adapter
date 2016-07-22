@@ -1,15 +1,17 @@
-const WinstonLoggerAdapter = require(
-  '../node_modules/parse-server/lib/Adapters/Logger/WinstonLoggerAdapter').WinstonLoggerAdapter;
+const WinstonLoggerAdapter = require('parse-server').WinstonLoggerAdapter;
 const WinstonFirehose = require('winston-firehose');
-
-// const Config = require('parse-server').Config;
+console.log(WinstonLoggerAdapter);
 
 export class FirehoseLoggerAdapter extends WinstonLoggerAdapter {
   constructor(streamName, firehoseOptions) {
     super();
-    const transport = new WinstonFirehose(firehoseOptions);
-    this.addTransport(transport);
+    if (process.env.NODE_ENV !== 'test') {
+      const transport = new WinstonFirehose(firehoseOptions);
+      this.addTransport(transport);
+    }
   }
 }
 
-//export default FirehoseLoggerAdapter;
+export default FirehoseLoggerAdapter;
+module.exports = FirehoseLoggerAdapter;
+
