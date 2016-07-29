@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "build": "babel src -d lib",
-    "test": "npm run build && istanbul cover jasmine",
+    "test": "npm run build && istanbul cover -x jasmine",
     "lint": "eslint src/** spec/**",
     "prepublish": "npm run build",
     "pretest": "npm run lint"

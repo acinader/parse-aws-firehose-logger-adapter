@@ -9,7 +9,6 @@ export class FirehoseLoggerAdapter extends WinstonLoggerAdapter {
     const options = this.optionsFromArguments(args);
 
     if (process.env.NODE_ENV !== 'test') {
-      // FIXME: use the mock class in winston-firehose instead....
       const transport = new WinstonFirehose(options);
       this.addTransport(transport);
     }
