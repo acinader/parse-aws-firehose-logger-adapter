@@ -1,6 +1,6 @@
 {
   "name": "parse-aws-firehose-logger-adapter",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Send logs from parse-server to AWS Firehose",
   "main": "lib/index.js",
   "keywords": [
