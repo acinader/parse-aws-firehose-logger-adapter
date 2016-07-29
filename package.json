@@ -39,11 +39,11 @@
     "jasmine": "^2.4.1",
     "kerberos": "0.0.21",
     "parse": "^1.9.0",
-    "parse-server-conformance-tests": "^1.0.0"
+    "parse-server-conformance-tests": "acinader/parse-server-conformance-tests.git#add-logger-conformance-test"
   },
   "dependencies": {
     "aws-sdk": "^2.4.7",
-    "parse-server": "^2.2.16",
+    "parse-server": "acinader/parse-server.git#npm-git-workable",
     "winston-firehose": "^1.0.6"
   }
 }
