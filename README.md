@@ -2,7 +2,9 @@
 [![codecov](https://codecov.io/gh/acinader/parse-aws-firehose-logger-adapter/branch/master/graph/badge.svg)](https://codecov.io/gh/acinader/parse-aws-firehose-logger-adapter)
 
 # Parse AWS Firehose Logger Adapter
-Enable parse-server to log to AWS Firehose to and Elastic Search for log browsing/searching with Kibana
+Enable parse-server -> AWS Firehose -> Elastic Search -> Kibana
+
+Aggregate logs from a cluster of Parse Servers
 
 ### How to use ###
 
