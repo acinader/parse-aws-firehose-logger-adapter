@@ -51,5 +51,5 @@ export class FirehoseLoggerAdapter extends WinstonLoggerAdapter {
   }
 }
 
-export default FirehoseLoggerAdapter;
 module.exports = FirehoseLoggerAdapter;
+export default FirehoseLoggerAdapter;
