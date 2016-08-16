@@ -40,8 +40,7 @@
     "istanbul": "^0.4.4",
     "jasmine": "^2.4.1",
     "kerberos": "0.0.21",
-    "parse": "^1.9.0",
-    "parse-server-conformance-tests": "acinader/parse-server-conformance-tests.git#add-logger-conformance-test"
+    "parse": "^1.9.0"
   },
   "dependencies": {
     "aws-sdk": "^2.4.7",

@@ -4,9 +4,9 @@ const WinstonFirehose = require('winston-firehose');
 const DEFAULT_REGION = 'us-east-1';
 
 export class FirehoseLoggerAdapter extends WinstonLoggerAdapter {
-  constructor(...args) {
-    super(args);
-    const options = this.optionsFromArguments(args);
+  constructor(arg) {
+    super(arg);
+    const options = this.optionsFromArguments(arg);
 
     if (process.env.NODE_ENV !== 'test') {
       const transport = new WinstonFirehose(options);
@@ -30,9 +30,8 @@ export class FirehoseLoggerAdapter extends WinstonLoggerAdapter {
     return options;
   }
 
-  optionsFromArguments(args) {
+  optionsFromArguments(streamNameOrOptions) {
     let options = {};
-    const streamNameOrOptions = args[0];
     if (typeof streamNameOrOptions === 'string') {
       options.streamName = streamNameOrOptions;
     } else {
