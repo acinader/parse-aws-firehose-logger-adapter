@@ -1,7 +1,7 @@
 language: node_js
 sudo: false
 before_script:
-  - npm install jasmine
+  - npm install jasmine parse parse-server
 node_js:
   - "4"
   - "5"
