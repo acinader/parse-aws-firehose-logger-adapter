@@ -44,7 +44,9 @@
   },
   "dependencies": {
     "aws-sdk": "^2.4.7",
-    "parse-server": "acinader/parse-server.git#npm-git-workable",
     "winston-firehose": "^1.0.6"
+  },
+   "peerDependencies": {
+    "parse-server": "^2.2.22"
   }
 }
