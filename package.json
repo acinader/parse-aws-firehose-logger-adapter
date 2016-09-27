@@ -1,6 +1,6 @@
 {
   "name": "parse-aws-firehose-logger-adapter",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Send logs from parse-server to AWS Firehose",
   "main": "lib/index.js",
   "keywords": [
@@ -46,7 +46,7 @@
     "aws-sdk": "^2.4.7",
     "winston-firehose": "^1.0.6"
   },
-   "peerDependencies": {
+  "peerDependencies": {
     "parse-server": "^2.2.22"
   }
 }
