@@ -1,7 +1,7 @@
 language: node_js
 sudo: false
-before_script:
-  - npm install jasmine parse parse-server
+before_install:
+  - npm install eslint-plugin-import@^1.16.0 jasmine parse parse-server
 node_js:
   - "4"
   - "5"
