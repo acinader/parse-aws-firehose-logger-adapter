@@ -3,8 +3,7 @@ sudo: false
 before_install:
   - npm install jasmine parse parse-server
 node_js:
-  - "4"
-  - "5"
+  - "4.3"
   - "6"
 
 after_success:
