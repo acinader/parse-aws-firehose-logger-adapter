@@ -1,7 +1,7 @@
 language: node_js
 sudo: false
 before_install:
-  - npm install jasmine parse parse-server
+  - npm install jasmine parse  parse-server@2.2.24
 node_js:
   - "4.3"
   - "6"
