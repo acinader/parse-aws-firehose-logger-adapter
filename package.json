@@ -46,7 +46,7 @@
     "winston-firehose": "^1.0.7"
   },
   "peerDependencies": {
-    "parse-server": "^2.2.22",
+    "parse-server": "^2.2.22 || ^2.2.25-beta.1",
     "parse": "^1.9.2"
   }
 }
