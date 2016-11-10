@@ -1,4 +1,5 @@
 const FirehoseLoggerAdapter = require('../lib/index.js').FirehoseLoggerAdapter;
+const config = require('config');
 
 // If you want to actually send a test log, then set NODE_ENV to something
 // other than 'test'.  See spec/helpers
@@ -20,5 +21,9 @@ describe('FirehoseLoggerAdapter configuration tests', () => {
     process.env.FIREHOSE_LOGGER_STREAM_NAME = 'test-stream';
     expect(() => new FirehoseLoggerAdapter()).not.toThrow();
     delete process.env.FIREHOSE_LOGGER_STREAM_NAME;
+  });
+
+  it('should load config', () => {
+    expect(config.get('logger')).not.toBe(null);
   });
 });
