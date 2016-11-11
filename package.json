@@ -40,7 +40,7 @@
     "eslint-plugin-react": "^6.6.0",
     "istanbul": "^0.4.5",
     "jasmine": "^2.5.2",
-    "kerberos": "0.0.21"
+    "kerberos": "0.0.22"
   },
   "dependencies": {
     "aws-sdk": "^2.6.15",
