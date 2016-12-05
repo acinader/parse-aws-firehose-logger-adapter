@@ -23,7 +23,9 @@ describe('FirehoseLoggerAdapter configuration tests', () => {
     delete process.env.FIREHOSE_LOGGER_STREAM_NAME;
   });
 
-  it('should load config', () => {
-    expect(config.get('logger')).not.toBe(null);
+  it('should be able to use immutable config', () => {
+    const options = config.get('loggerOptions');
+    const logger = new FirehoseLoggerAdapter(options);
+    expect(logger).not.toBe(null);
   });
 });
