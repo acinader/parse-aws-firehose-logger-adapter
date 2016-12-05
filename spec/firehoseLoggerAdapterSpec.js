@@ -10,11 +10,11 @@ describe('FirehoseLoggerAdapter configuration tests', () => {
   });
 
   it('can configure with options', () => {
-    expect(() => new FirehoseLoggerAdapter({ name: 'test-stream' }).not.toThrow());
+    expect(() => new FirehoseLoggerAdapter({ streamName: 'test-stream' })).not.toThrow();
   });
 
   it('can configure with string arg', () => {
-    expect(() => new FirehoseLoggerAdapter('test-stream').not.toThrow());
+    expect(() => new FirehoseLoggerAdapter('test-stream')).not.toThrow();
   });
 
   it('can configure with env var', () => {
