@@ -11,7 +11,7 @@
     "Elastic Search"
   ],
   "scripts": {
-    "build": "babel src -d lib",
+    "build": "babel src -d lib --source-maps",
     "test": "npm run build && NODE_CONFIG_DIR=./spec/config istanbul cover jasmine",
     "lint": "eslint src/** spec/**",
     "prepublish": "npm run build",

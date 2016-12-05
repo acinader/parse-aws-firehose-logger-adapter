@@ -10,11 +10,11 @@ describe('FirehoseLoggerAdapter configuration tests', () => {
   });
 
   it('can configure with options', () => {
-    expect(() => new FirehoseLoggerAdapter({ name: 'test-stream' }).not.toThrow());
+    expect(() => new FirehoseLoggerAdapter({ streamName: 'test-stream' })).not.toThrow();
   });
 
   it('can configure with string arg', () => {
-    expect(() => new FirehoseLoggerAdapter('test-stream').not.toThrow());
+    expect(() => new FirehoseLoggerAdapter('test-stream')).not.toThrow();
   });
 
   it('can configure with env var', () => {
@@ -23,7 +23,9 @@ describe('FirehoseLoggerAdapter configuration tests', () => {
     delete process.env.FIREHOSE_LOGGER_STREAM_NAME;
   });
 
-  it('should load config', () => {
-    expect(config.get('logger')).not.toBe(null);
+  it('should be able to use immutable config', () => {
+    const options = config.get('loggerOptions');
+    const logger = new FirehoseLoggerAdapter(options);
+    expect(logger).not.toBe(null);
   });
 });

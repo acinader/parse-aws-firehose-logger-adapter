@@ -7,7 +7,7 @@ const DEFAULT_REGION = 'us-east-1';
 export class FirehoseLoggerAdapter extends WinstonLoggerAdapter {
   constructor(arg) {
     super(arg);
-    this.optionsFromArguments(arg);
+    this.options = FirehoseLoggerAdapter.optionsFromArguments(arg);
 
     if (process.env.NODE_ENV !== 'test') {
       const transport = new WinstonFirehose(this.options);
@@ -16,37 +16,48 @@ export class FirehoseLoggerAdapter extends WinstonLoggerAdapter {
   }
 
   // following three functions copied from s3Adapter.  Would be nice to have a lib...
-  requiredOrFromEnvironment(key, env) {
-    // eslint-disable-next-line no-param-reassign
-    this.options[key] = this.options[key] || process.env[env];
+  static requiredOrFromEnvironment(args, key, env) {
+    // special case
+    if (key === 'streamName' && typeof args === 'string') {
+      return args;
+    }
 
-    if (!this.options[key]) {
+    const val = (args && args[key]) || process.env[env];
+
+    if (!val) {
       throw new Error(`FirehoseLoggerAdapter requires option '${key}' or env. variable ${env}`);
     }
-    return this.options;
+    return val;
   }
 
-  fromEnvironmentOrDefault(key, env, defaultValue) {
-    // eslint-disable-next-line no-param-reassign
-    this.options[key] = this.options[key] || process.env[env] || defaultValue;
-    return this.options;
+  static fromEnvironmentOrDefault(args, key, env, defaultValue) {
+    const val = (Array.isArray(args) && args[key]) ||
+      process.env[env] ||
+      defaultValue;
+
+    return val;
   }
 
-  optionsFromArguments(streamNameOrOptions) {
-    this.options = {};
-    if (typeof streamNameOrOptions === 'string') {
-      this.options.streamName = streamNameOrOptions;
-    } else {
-      this.options = streamNameOrOptions || {};
-    }
-    this.options = this.requiredOrFromEnvironment('streamName', 'FIREHOSE_LOGGER_STREAM_NAME');
+  static optionsFromArguments(streamNameOrOptions) {
+    const options = {};
 
-    let firehoseOptions = this.options.firehoseOptions || {};
-    firehoseOptions = this.fromEnvironmentOrDefault(
+    const args = typeof streamNameOrOptions === 'string' ? {} : streamNameOrOptions;
+    options.streamName = FirehoseLoggerAdapter.requiredOrFromEnvironment(
+      streamNameOrOptions,
+      'streamName',
+      'FIREHOSE_LOGGER_STREAM_NAME');
+
+
+    const firehoseOptions = {};
+    firehoseOptions.region = FirehoseLoggerAdapter.fromEnvironmentOrDefault(
       firehoseOptions, 'region', 'FIREHOSE_LOGGER_REGION', DEFAULT_REGION);
-    firehoseOptions = this.fromEnvironmentOrDefault(
+    firehoseOptions.level = FirehoseLoggerAdapter.fromEnvironmentOrDefault(
       firehoseOptions, 'level', 'FIREHOSE_LOGGER_LEVEL', '');
-    this.options.firehoseOptions = firehoseOptions;
+
+
+    options.firehoseOptions = {};
+    Object.assign(options.firehoseOptions, firehoseOptions, (args && args.firehoseOptions) || {});
+    return options;
   }
 }
 
