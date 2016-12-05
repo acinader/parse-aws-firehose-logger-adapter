@@ -43,7 +43,7 @@
     "kerberos": "0.0.22"
   },
   "dependencies": {
-    "aws-sdk": "^2.6.15",
+    "aws-sdk": "^2.7.1",
     "winston-firehose": "^1.0.8"
   },
   "peerDependencies": {
