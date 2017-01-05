@@ -17,3 +17,10 @@ Other winston logger options can also be passed:
 ```
 loggerAdapter: new FirehoseLoggerAdapter({ streamName, level: 'verbose' });
 ```
+
+### AWS Credentials ###
+
+It *should* be possible to pass `accessKeyId` and `secretAccessKey` values in the options.
+
+For AWS credentials, see [Configuring the SDK for JavaScript](http://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/configuring-the-jssdk.html).  On developer machines, use a standard location for your credentials.  For deployment on EC2, use a role.
+
