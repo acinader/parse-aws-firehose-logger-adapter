@@ -31,7 +31,7 @@ export class FirehoseLoggerAdapter extends WinstonLoggerAdapter {
   }
 
   static fromEnvironmentOrDefault(args, key, env, defaultValue) {
-    const val = (Array.isArray(args) && args[key]) ||
+    const val = (args && args[key]) ||
       process.env[env] ||
       defaultValue;
 
@@ -46,13 +46,11 @@ export class FirehoseLoggerAdapter extends WinstonLoggerAdapter {
       streamNameOrOptions,
       'streamName',
       'FIREHOSE_LOGGER_STREAM_NAME');
-
+    options.level = FirehoseLoggerAdapter.fromEnvironmentOrDefault(streamNameOrOptions, 'level', 'FIREHOSE_LOGGER_LEVEL', '');
 
     const firehoseOptions = {};
     firehoseOptions.region = FirehoseLoggerAdapter.fromEnvironmentOrDefault(
       firehoseOptions, 'region', 'FIREHOSE_LOGGER_REGION', DEFAULT_REGION);
-    firehoseOptions.level = FirehoseLoggerAdapter.fromEnvironmentOrDefault(
-      firehoseOptions, 'level', 'FIREHOSE_LOGGER_LEVEL', '');
 
 
     options.firehoseOptions = {};

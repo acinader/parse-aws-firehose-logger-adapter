@@ -23,6 +23,13 @@ describe('FirehoseLoggerAdapter configuration tests', () => {
     delete process.env.FIREHOSE_LOGGER_STREAM_NAME;
   });
 
+  it('can configure with passed in level from config', () => {
+    const options = config.get('loggerOptions');
+    const logger = new FirehoseLoggerAdapter(options);
+    const level = logger.options.level;
+    expect(level).toBe('verbose');
+  });
+
   it('should be able to use immutable config', () => {
     const options = config.get('loggerOptions');
     const logger = new FirehoseLoggerAdapter(options);

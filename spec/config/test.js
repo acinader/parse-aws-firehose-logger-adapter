@@ -1,3 +1,3 @@
 module.exports = {
-  loggerOptions: { streamName: 'test' },
+  loggerOptions: { streamName: 'test', level: 'verbose' },
 };
