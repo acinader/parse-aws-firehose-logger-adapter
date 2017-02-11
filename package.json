@@ -33,21 +33,21 @@
     "babel-preset-stage-0": "^6.16.0",
     "codecov": "^1.0.1",
     "config": "^1.24.0",
-    "eslint": "^3.13.0",
-    "eslint-config-airbnb": "^14.0.0",
+    "eslint": "^3.15.0",
+    "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "2.2.0",
-    "eslint-plugin-jsx-a11y": "^3.0.2",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.9.0",
     "istanbul": "^0.4.5",
-    "jasmine": "^2.5.2",
+    "jasmine": "^2.5.3",
     "kerberos": "0.0.22"
   },
   "dependencies": {
-    "aws-sdk": "^2.7.1",
+    "aws-sdk": "^2.12.0",
     "winston-firehose": "^1.0.8"
   },
   "peerDependencies": {
-    "parse-server": "^2.2.22 || ^2.2.25-beta.1",
+    "parse-server": "^2.2.22",
     "parse": "^1.9.2"
   }
 }
