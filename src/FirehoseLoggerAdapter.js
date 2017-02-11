@@ -9,6 +9,7 @@ export class FirehoseLoggerAdapter extends WinstonLoggerAdapter {
     super(arg);
     this.options = FirehoseLoggerAdapter.optionsFromArguments(arg);
 
+    /* istanbul ignore next */
     if (process.env.NODE_ENV !== 'test') {
       const transport = new WinstonFirehose(this.options);
       this.addTransport(transport);
