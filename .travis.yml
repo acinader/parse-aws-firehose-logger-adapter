@@ -4,6 +4,7 @@ before_install:
   - npm install jasmine parse  parse-server
 node_js:
   - "6"
+  - "10"
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
